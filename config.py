@@ -1,5 +1,6 @@
 import os
-
+class Config:
+      UPDATES_CHANNEL = "-1002197951128"
 #Bot token @Botfather
 BOT_TOKEN = os.environ.get("BOT_TOKEN", "7566645218:AAESBbzZYtnQDLb18QrSMdZR3-HxKWkrSUY")
 
