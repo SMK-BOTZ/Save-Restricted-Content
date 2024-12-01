@@ -84,8 +84,19 @@ async def send_start(client: Client, message: Message):
         ]
     ]
     reply_markup = InlineKeyboardMarkup(buttons)
-    await client.send_message(message.chat.id, f"<b>👋 Hi {message.from_user.mention}, I am Save Restricted Content Bot, I can send you restricted content by its post link.\n\nFor downloading restricted content /login first.\n\nKnow how to use bot by - /help</b>", reply_markup=reply_markup, reply_to_message_id=message.id)
-    return
+
+    # Image URL (You can also use a local path or a URL)
+    image_url = "https://example.com/your-image.jpg"  # Replace with your image URL
+
+    # Send photo with caption and inline buttons
+    await bot.send_photo(
+        chat_id=message.chat.id,
+        photo=image_url,  # Use either an image URL or a file path
+        caption=f"<b>👋 Hi {message.from_user.mention}, I am Save Restricted Content Bot, I can send you restricted content by its post link.\n\nFor downloading restricted content /login first.\n\nKnow how to use the bot by - /help</b>",
+        reply_markup=reply_markup,
+        reply_to_message_id=message.id
+    )
+
 
 
 # help command
