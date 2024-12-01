@@ -98,8 +98,7 @@ async def send_start(client: Client, message: Message):
             f"For downloading restricted content, /login first.\n\n"
             f"Know how to use the bot by - /help</b>"
         ),
-        reply_markup=reply_markup,
-        reply_to_message_id=message.id
+        reply_markup=reply_markup
     )
 
 
