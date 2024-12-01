@@ -65,12 +65,12 @@ def progress(current, total, message, type):
 # start command
 @Client.on_message(filters.command(["start"]))
 async def send_start(client: Client, message: Message):
-
-    # Check for force subscription
+    # Check for forced subscription
     Fsub = await ForceSub(client, message)
     if Fsub == 400:
-        return
-	
+        return  # Stop further execution if not subscribed
+
+    # Inline keyboard buttons
     buttons = [
         [
             InlineKeyboardButton("ɴᴇᴄʀᴏᴍᴀɴᴄᴇʀ", url="https://t.me/VR_Necromancer")
@@ -85,18 +85,22 @@ async def send_start(client: Client, message: Message):
     ]
     reply_markup = InlineKeyboardMarkup(buttons)
 
-    # Image URL (You can also use a local path or a URL)
-    image_url = "https://graph.org/file/bebe0969b633bf2ba991b-75eeb70573bcda4dad.png"  # Replace with your image URL
+    # Image URL (ensure the URL is valid)
+    image_url = "https://graph.org/file/bebe0969b633bf2ba991b-75eeb70573bcda4dad.png"
 
     # Send photo with caption and inline buttons
-    await bot.send_photo(
+    await client.send_photo(
         chat_id=message.chat.id,
-        photo=image_url,  # Use either an image URL or a file path
-        caption=f"<b>👋 Hi {message.from_user.mention}, I am Save Restricted Content Bot, I can send you restricted content by its post link.\n\nFor downloading restricted content /login first.\n\nKnow how to use the bot by - /help</b>",
+        photo=image_url,
+        caption=(
+            f"<b>👋 Hi {message.from_user.mention}, I am Save Restricted Content Bot."
+            f" I can send you restricted content by its post link.\n\n"
+            f"For downloading restricted content, /login first.\n\n"
+            f"Know how to use the bot by - /help</b>"
+        ),
         reply_markup=reply_markup,
         reply_to_message_id=message.id
     )
-
 
 
 # help command
