@@ -71,31 +71,17 @@ async def start(bot: Client, message: Message):
     if Fsub == 400:
         return
 	
-    buttons = [
-        [
-            InlineKeyboardButton("ɴᴇᴄʀᴏᴍᴀɴᴄᴇʀ", url="https://t.me/VR_Necromancer")
-        ],
-        [
-            InlineKeyboardButton('📡 sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ', url='https://t.me/vr_support'),
-            InlineKeyboardButton('📜 ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ', url='https://t.me/vr_unreal')
-        ],
-        [
-            InlineKeyboardButton("❗️ʜᴇʟᴘ", callback_data='help')
-        ]
-    ]
+   buttons = [[
+        InlineKeyboardButton("ɴᴇᴄʀᴏᴍᴀɴᴄᴇʀ", url = "https://t.me/VR_Necromancer")
+    ],[
+        InlineKeyboardButton('📡 sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ', url='https://t.me/vr_support'),
+        InlineKeyboardButton('📜 ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ', url='https://t.me/vr_unreal')
+    ],[
+        InlineKeyboardButton("❗️ʜᴇʟᴘ", callback_data='help')
+    ]]
     reply_markup = InlineKeyboardMarkup(buttons)
-
-    # Image URL (You can also use a local path or a URL)
-    image_url = "https://graph.org/file/bebe0969b633bf2ba991b-75eeb70573bcda4dad.png"  # Replace with your image URL
-
-    # Send photo with caption and inline buttons
-    await bot.send_photo(
-        chat_id=message.chat.id,
-        photo=image_url,  # Use either an image URL or a file path
-        caption=f"<b>👋 Hi {message.from_user.mention}, I am Save Restricted Content Bot, I can send you restricted content by its post link.\n\nFor downloading restricted content /login first.\n\nKnow how to use the bot by - /help</b>",
-        reply_markup=reply_markup,
-        reply_to_message_id=message.id
-    )
+    await client.send_message(message.chat.id, f"<b>👋 Hi {message.from_user.mention}, I am Save Restricted Content Bot, I can send you restricted content by its post link.\n\nFor downloading restricted content /login first.\n\nKnow how to use bot by - /help</b>", reply_markup=reply_markup, reply_to_message_id=message.id)
+    return
 
 
 # help command
