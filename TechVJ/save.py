@@ -86,7 +86,7 @@ async def send_start(client: Client, message: Message):
     reply_markup = InlineKeyboardMarkup(buttons)
 
     # Image URL (You can also use a local path or a URL)
-    image_url = "https://example.com/your-image.jpg"  # Replace with your image URL
+    image_url = "https://graph.org/file/bebe0969b633bf2ba991b-75eeb70573bcda4dad.png"  # Replace with your image URL
 
     # Send photo with caption and inline buttons
     await bot.send_photo(
